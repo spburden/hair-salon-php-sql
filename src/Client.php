@@ -24,24 +24,25 @@
 
         function getName()
         {
-            return $this->client_id;
+            return $this->name;
         }
 
-        function setClientId($new_client_id)
+        function setStylistId($new_stylist_id)
         {
-            $this->client_id = $new_client_id;
+            $this->stylist_id = $new_stylist_id;
         }
 
-        function getClientId()
+        function getStylistId()
         {
-            return $this->client_id;
+            return $this->stylist_id;
         }
 
         function save()
         {
             $name = $this->getName();
             $name = ucwords(strtolower($name));
-            $GLOBALS['DB']->exec("INSERT INTO stylists (name, stylist_id) VALUES ('{$name}', {$stylist_id});");
+            $stylist_id = $this->getStylistId();
+            $GLOBALS['DB']->exec("INSERT INTO clients (name, stylist_id) VALUES ('{$name}', {$stylist_id});");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -53,7 +54,7 @@
                 $id = $client['id'];
                 $name = $client['name'];
                 $stylist_id = $client['stylist_id'];
-                $new_client = new Stylist($id, $name, $stylist_id);
+                $new_client = new Client($id, $name, $stylist_id);
                 array_push($clients, $new_client);
             }
             return $clients;
