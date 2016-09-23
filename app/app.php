@@ -10,6 +10,9 @@
 
     $app['debug'] = true;
 
+    // ALTERNATIVE SERVER:
+    //$server = 'mysql:host=localhost;dbname=hair_salon_test';
+    //
     $server = 'mysql:host=localhost;dbname=hair_salon';
     $username = 'root';
     $password = 'root';

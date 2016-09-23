@@ -5,30 +5,34 @@
     */
     require_once "src/Stylist.php";
 
-    $server = 'mysql:host=localhost;dbname=hair_salon_test';
+    // ALTERNATIVE SERVER:
+    //$server = 'mysql:host=localhost;dbname=hair_salon_test';
+    //
+    $server = 'mysql:host=localhost:8889;dbname=hair_salon_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
     class ClassTest extends PHPUnit_Framework_TestCase
     {
-        protected function tearDown()
-        {
-            Stylist::deleteAll();
+        // protected function tearDown()
+        // {
+        //     Stylist::deleteAll();
+        //
+        // }
 
-        }
-
-        function test_getName()
+        function test_save()
         {
             //Arrange
-            $test_Stylist = new Stylist($id = null, $name);
-            $name = "Jennifer";
+            $new_name = "Jennifer Jones";
+            $test_Stylist = new Stylist($id = null, $new_name);
 
             //Act
-            $output = $test_Stylist->getName();
+            $test_Stylist->save();
+            $output = Stylist::getAll();
 
             //Assert
-            $this->assertEquals("Jennifer", $output);
+            $this->assertEquals([$test_Stylist], $output);
         }
 
     }

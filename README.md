@@ -17,6 +17,7 @@
 * _To access the database admin page use your browser to open localhost:8080/phpmyadmin, or localhost:8888/phpmyadmin depending on your networks settings_
 * _In Terminal or Command Prompt go to the /web directory and enter the command: php -S localhost:8000_
 * _To browse the website go to http://localhost:8000/ in the browser of your choosing_
+* _If the server's database is not functioning: change the server number in the app file to match your MySQL Port number in MAMP (Preferences... -> Ports). EXAMPLE: 'mysql:host=localhost:8889;dbname=hair_salon'. OR uncomment out the 'ALTERNATIVE SERVER' in the app file_
 
 ## MySQL commands ran for project:
 * _/Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot_
