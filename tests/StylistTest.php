@@ -57,13 +57,13 @@
             //Arrange
             $new_name1 = "Jennifer Jones";
             $test_Stylist1 = new Stylist($id = null, $new_name1);
+            $test_Stylist1->save();
 
             $new_name2 = "Amber Hill";
             $test_Stylist2 = new Stylist($id = null, $new_name2);
+            $test_Stylist2->save();
 
             //Act
-            $test_Stylist1->save();
-            $test_Stylist2->save();
             Stylist::deleteAll();
             $output = Stylist::getAll();
 
@@ -107,6 +107,24 @@
             $this->assertEquals("Jennifer Williams", $output);
         }
 
+        function test_deleteStylist()
+        {
+            //Arrange
+            $new_name1 = "Jennifer Jones";
+            $test_Stylist1 = new Stylist($id = null, $new_name1);
+            $test_Stylist1->save();
+
+            $new_name2 = "Amber Hill";
+            $test_Stylist2 = new Stylist($id = null, $new_name2);
+            $test_Stylist2->save();
+
+            //Act
+            $test_Stylist1->deleteStylist();
+            $output = Stylist::getAll();
+
+            //Assert
+            $this->assertEquals([$test_Stylist2], $output);
+        }
 
     }
         // export PATH=$PATH:./vendor/bin first and then you will only have to run  $ phpunit tests
