@@ -6,6 +6,7 @@
             <h2>Stylist Update Page</h2>
             <h2>Edit {{ stylist.getName }}'s Information</h2>
             <form class="form-inline" action="/stylist/{{ stylist.getId }}/edit" method="post">
+                <input name="_method" type="hidden" value="patch">
                 <div class="form-group">
                     <input class="form-control" type="text" name="stylist_name" placeholder="Name" required>
                 </div>

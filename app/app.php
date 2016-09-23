@@ -74,7 +74,7 @@
         return $app['twig']->render('stylist_edit.html.twig', array ('stylist' => $stylist));
     });
 
-    $app->post("/stylist/{id}/edit", function($id) use ($app) {
+    $app->patch("/stylist/{id}/edit", function($id) use ($app) {
         $stylist = Stylist::find($id);
         $editted_stylist = $stylist->updateStylist($_POST['stylist_name']);
         $clients = $stylist->findClients();
