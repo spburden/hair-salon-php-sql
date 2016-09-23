@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div class="container">
+            <h1>Epic Hair Salon</h1>
+            {% if stylists %}
+                <h2>Stylists:</h2>
+                <ul>
+                    {% for stylist in stylists %}
+                        <a href="/stylist/{{ stylist.getId }}"><li>{{ stylist.getName }}</li></a>
+                    {% endfor %}
+                </ul>
+                <form class="" action="/delete_all" method="post">
+                    <button type="submit" class="btn btn-danger">Delete All</button>
+                </form>
+            {% endif %}
+            <form class="form-inline" action="/" method="post">
+                <h4>Add a new Stylist</h4>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="name" placeholder="Name" required>
+                </div>
+                <button type="submit" class="btn btn-success">+</button>
+            </form>
+        </div>
+    </body>
+</html>
