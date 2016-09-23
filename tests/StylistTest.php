@@ -23,6 +23,20 @@
         function test_save()
         {
             //Arrange
+            $new_name = "Jennifer Jones";
+            $test_Stylist = new Stylist($id = null, $new_name);
+
+            //Act
+            $test_Stylist->save();
+            $output = Stylist::getAll();
+
+            //Assert
+            $this->assertEquals([$test_Stylist], $output);
+        }
+
+        function test_getAll()
+        {
+            //Arrange
             $new_name1 = "Jennifer Jones";
             $test_Stylist1 = new Stylist($id = null, $new_name1);
 
@@ -38,7 +52,45 @@
             $this->assertEquals([$test_Stylist1, $test_Stylist2], $output);
         }
 
-        
+        function test_deleteAll()
+        {
+            //Arrange
+            $new_name1 = "Jennifer Jones";
+            $test_Stylist1 = new Stylist($id = null, $new_name1);
+
+            $new_name2 = "Amber Hill";
+            $test_Stylist2 = new Stylist($id = null, $new_name2);
+
+            //Act
+            $test_Stylist1->save();
+            $test_Stylist2->save();
+            Stylist::deleteAll();
+            $output = Stylist::getAll();
+
+            //Assert
+            $this->assertEquals([], $output);
+        }
+
+        function test_find()
+        {
+            //Arrange
+            $new_name1 = "Jennifer Jones";
+            $test_Stylist1 = new Stylist($id = null, $new_name1);
+
+            $new_name2 = "Amber Hill";
+            $test_Stylist2 = new Stylist($id = null, $new_name2);
+
+            $test_Stylist1->save();
+            $test_Stylist2->save();
+
+            //Act
+            $search_id = $test_Stylist1->getId();
+            $output = Stylist::find($search_id);
+
+            //Assert
+            $this->assertEquals($test_Stylist1, $output);
+        }
+
 
     }
         // export PATH=$PATH:./vendor/bin first and then you will only have to run  $ phpunit tests

@@ -33,7 +33,7 @@
                $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
-        function getAll()
+        static function getAll()
         {
             $returned_stylists = $GLOBALS['DB']->query("SELECT * FROM stylists;");
             $stylists = array();
@@ -51,5 +51,29 @@
             $GLOBALS['DB']->exec("DELETE FROM stylists;");
         }
 
+        static function find($search_id)
+        {
+            $found_stylist = null;
+            $stylists = Stylist::getAll();
+            foreach ($stylists as $stylist) {
+                $stylist_id = $stylist->getId();
+                if ($stylist_id == $search_id) {
+                    $found_stylist = $stylist;
+                }
+            }
+            return $found_stylist;
+        }
+
+        function updateStylist($edit_name)
+        {
+            $edit_name = ucwords(strtolower($edit_name));
+            $GLOBALS['DB']->exec("UPDATE stylists SET name = '{$edit_name}' WHERE id = {$this->getId()};");
+            $this->setName($edit_name);
+        }
+
+        function deleteStylist()
+        {
+            $GLOBALS['DB']->exec("DELETE stylists WHERE id = {$this->getId()};");
+        }
     }
 ?>
