@@ -91,6 +91,22 @@
             $this->assertEquals($test_Stylist1, $output);
         }
 
+        function test_updateStylist()
+        {
+            //Arrange
+            $new_name = "Jennifer Jones";
+            $test_Stylist = new Stylist($id = null, $new_name);
+            $test_Stylist->save();
+            $edit_name = "Jennifer Williams";
+
+            //Act
+            $test_Stylist->updateStylist($edit_name);
+            $output = $test_Stylist->getName();
+
+            //Assert
+            $this->assertEquals("Jennifer Williams", $output);
+        }
+
 
     }
         // export PATH=$PATH:./vendor/bin first and then you will only have to run  $ phpunit tests

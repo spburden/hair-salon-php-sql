@@ -30,7 +30,7 @@
             $name = $this->getName();
             $name = ucwords(strtolower($name));
             $GLOBALS['DB']->exec("INSERT INTO stylists (name) VALUES ('{$name}');");
-               $this->id = $GLOBALS['DB']->lastInsertId();
+            $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
         static function getAll()
