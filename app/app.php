@@ -1,10 +1,8 @@
 <?php
     require_once __DIR__."/../vendor/autoload.php";
     require_once __DIR__."/../src/Stylist.php";
-<<<<<<< HEAD
     require_once __DIR__."/../src/Client.php";
-=======
->>>>>>> 88c85e8484a4575497ed2c3635a7afad5030ca02
+
     date_default_timezone_set('America/Los_Angeles');
 
     use Symfony\Component\Debug\Debug;
@@ -14,15 +12,9 @@
 
     $app['debug'] = true;
 
-<<<<<<< HEAD
     // //ALTERNATIVE SERVER:
     $server = 'mysql:host=localhost;dbname=hair_salon';
     // $server = 'mysql:host=localhost:8889;dbname=hair_salon';
-=======
-    //ALTERNATIVE SERVER:
-    //$server = 'mysql:host=localhost;dbname=hair_salon';
-    $server = 'mysql:host=localhost:8889;dbname=hair_salon';
->>>>>>> 88c85e8484a4575497ed2c3635a7afad5030ca02
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -48,6 +40,16 @@
         $stylists = Stylist::getAll();
         return $app['twig']->render('index.html.twig', array('stylists' => $stylists));
     });
+
+    $app->get("/stylist/{id}", function($id) use ($app) {
+        $stylist = Stylist::find($id);
+        $clients = $stylist->findClients();
+        $stylists = Stylist::getAll();
+        return $app['twig']->render('stylist.html.twig', array ('stylist' => $stylist, 'clients' => $clients));
+    });
+
+
+
 
     return $app;
 ?>
