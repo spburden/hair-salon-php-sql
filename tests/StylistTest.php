@@ -55,7 +55,6 @@
             $this->assertEquals("Jennifer Williams", $output);
         }
 
-
         function test_save_toDatabase()
         {
             //Arrange
@@ -190,8 +189,5 @@
             //Assert
             $this->assertEquals([$test_client1], $output);
         }
-
-
-
     }
 ?>
