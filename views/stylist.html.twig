@@ -3,6 +3,7 @@
     <body>
         <div class="container">
             <h1>Epic Hair Salon</h1>
+            <a href="/"><button type="button" class="btn btn-primary">Home</button></a>
                 <h2>{{ stylist.getName }}'s Clientele:</h2>
                 <form class="form-group" action="/stylist/{{ stylist.getId }}/edit" method="get">
                     <button type="submit" class="btn btn-primary">Edit {{ stylist.getName }}</button>
