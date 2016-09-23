@@ -6,6 +6,9 @@
     date_default_timezone_set('America/Los_Angeles');
 
     use Symfony\Component\Debug\Debug;
+    use Symfony\Component\HttpFoundation\Request;
+    Request::enableHttpMethodParameterOverride();
+
     Debug::enable();
 
     $app = new Silex\Application();
@@ -84,13 +87,15 @@
         return $app['twig']->render('client_edit.html.twig', array ('client' => $client));
     });
 
-    // $app->post("/client/{id}/edit", function($id) use ($app) {
-    //     $stylist = Stylist::find($id);
-    //     $editted_stylist = $stylist->updateStylist($_POST['stylist_name']);
-    //     $clients = $stylist->findClients();
-    //     $stylists = Stylist::getAll();
-    //     return $app['twig']->render('stylist.html.twig', array ('stylist' => $stylist, 'clients' => $clients));
-    // });
+    $app->patch("/client/{id}/edit", function($id) use ($app) {
+        $edit_client = Client::find($id);
+        $stylist_id = $edit_client->getStylistId();
+        $edit_client->updateClient($_POST['client_name']);
+        $stylist = Stylist::find($stylist_id);
+        $clients = $stylist->findClients();
+        $stylists = Stylist::getAll();
+        return $app['twig']->render('stylist.html.twig', array ('stylist' => $stylist, 'clients' => $clients));
+    });
 
 
 
