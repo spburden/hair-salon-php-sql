@@ -12,8 +12,8 @@
     require_once "src/Client.php";
 
     //ALTERNATIVE SERVER:
-    //$server = 'mysql:host=localhost;dbname=hair_salon_test';
-    $server = 'mysql:host=localhost:8889;dbname=hair_salon_test';
+    $server = 'mysql:host=localhost;dbname=hair_salon_test';
+    // $server = 'mysql:host=localhost:8889;dbname=hair_salon_test';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);
@@ -96,10 +96,10 @@
 
             //Act
             $search_id = $test_client1->getId();
-            $output = Stylist::find($search_id);
+            $output = Client::find($search_id);
 
             //Assert
-            $this->assertEquals($test_Stylist1, $output);
+            $this->assertEquals($test_client1, $output);
         }
 
         function test_updateClient()
