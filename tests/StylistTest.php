@@ -3,11 +3,15 @@
     * @backupGlobals disabled
     * @backupStaticAttributes disabled
     */
+
+    //TO RUN TESTS IN TERMINAL:
+    //export PATH=$PATH:./vendor/bin
+    //phpunit tests
+
     require_once "src/Stylist.php";
 
-    // ALTERNATIVE SERVER:
+    //ALTERNATIVE SERVER:
     //$server = 'mysql:host=localhost;dbname=hair_salon_test';
-    //
     $server = 'mysql:host=localhost:8889;dbname=hair_salon_test';
     $username = 'root';
     $password = 'root';
@@ -127,5 +131,4 @@
         }
 
     }
-        // export PATH=$PATH:./vendor/bin first and then you will only have to run  $ phpunit tests
 ?>
