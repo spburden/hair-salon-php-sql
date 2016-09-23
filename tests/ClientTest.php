@@ -28,7 +28,7 @@
         {
             //Arrange
             $new_name = "Joe Dirt";
-            $stylist_id = '3';
+            $stylist_id = 3;
             $test_Client = new Client($id = null, $new_name, $stylist_id);
 
             //Act
@@ -43,12 +43,12 @@
         {
             //Arrange
             $new_name1 = "Joe Dirt";
-            $stylist_id1 = '3';
+            $stylist_id1 = 3;
             $test_Client1 = new Client($id = null, $new_name1, $stylist_id1);
             $test_Client1->save();
 
             $new_name2 = "Bill Smith";
-            $stylist_id2 = '1';
+            $stylist_id2 = 1;
             $test_Client2 = new Client($id = null, $new_name2, $stylist_id2);
             $test_Client2->save();
 
@@ -63,12 +63,12 @@
         {
             //Arrange
             $new_name1 = "Joe Dirt";
-            $stylist_id1 = '3';
+            $stylist_id1 = 3;
             $test_Client1 = new Client($id = null, $new_name1, $stylist_id1);
             $test_Client1->save();
 
             $new_name2 = "Bill Smith";
-            $stylist_id2 = '1';
+            $stylist_id2 = 1;
             $test_Client2 = new Client($id = null, $new_name2, $stylist_id2);
             $test_Client2->save();
 
@@ -84,12 +84,12 @@
         {
             //Arrange
             $new_name1 = "Joe Dirt";
-            $stylist_id1 = '3';
+            $stylist_id1 = 3;
             $test_Client1 = new Client($id = null, $new_name1, $stylist_id1);
             $test_Client1->save();
 
             $new_name2 = "Bill Smith";
-            $stylist_id2 = '1';
+            $stylist_id2 = 1;
             $test_Client2 = new Client($id = null, $new_name2, $stylist_id2);
             $test_Client2->save();
 
@@ -105,7 +105,7 @@
         {
             //Arrange
             $new_name = "Jennifer Lopez";
-            $stylist_id = '3';
+            $stylist_id = 3;
             $test_Client = new Client($id = null, $new_name, $stylist_id);
             $test_Client->save();
             $edit_name = "Jennifer Dirt";
@@ -122,12 +122,12 @@
         {
             //Arrange
             $new_name1 = "James Jones";
-            $stylist_id1 = '3';
+            $stylist_id1 = 3;
             $test_Client1 = new Client($id = null, $new_name1, $stylist_id1);
             $test_Client1->save();
 
             $new_name2 = "Amber Hill";
-            $stylist_id2 = '3';
+            $stylist_id2 = 3;
             $test_Client2 = new Client($id = null, $new_name2, $stylist_id2);
             $test_Client2->save();
 
