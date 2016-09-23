@@ -3,19 +3,20 @@
     <body>
         <div class="container">
             <h1>Epic Hair Salon</h1>
-            {% if stylist %}
                 <h2>{{ stylist.getName }}'s Clientele:</h2>
-                <ul>
-                {% if clients %}
-                    {% for client in clients %}
-                        <a href="/stylist/{{ stylist.getId }}/{{ client.getId }}"><li>{{ client.getName }}</li></a>
-                    {% endfor %}
-                </ul>
-                <form class="" action="/stylist/{{ stylist.getId }}/delete_all" method="post">
-                    <button type="submit" class="btn btn-danger">Delete All</button>
+                <form class="form-group" action="/stylist/{{ stylist.getId }}/edit" method="get">
+                    <button type="submit" class="btn btn-primary">Edit {{ stylist.getName }}</button>
                 </form>
+                {% if clients %}
+                    <ul>
+                        {% for client in clients %}
+                            <a href="/stylist/{{ stylist.getId }}/{{ client.getId }}"><li>{{ client.getName }}</li></a>
+                        {% endfor %}
+                    </ul>
+                    <form class="" action="/stylist/{{ stylist.getId }}/delete_all" method="post">
+                        <button type="submit" class="btn btn-danger">Delete All</button>
+                    </form>
                 {% endif %}
-            {% endif %}
             <form class="form-inline" action="/stylist/{{ stylist.getId }}/" method="post">
                 <h4>Add a new Client</h4>
                 <div class="form-group">

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div class="container">
+            <h1>Epic Hair Salon</h1>
+                <h2>Edit {{ stylist.getName }}'s</h2>
+            <form class="form-inline" action="/stylist/{{ stylist.getId }}/edit" method="post">
+                <h4>Update Name</h4>
+                <div class="form-group">
+                    <input class="form-control" type="text" name="stylist_name" placeholder="Name" required>
+                </div>
+                <button type="submit" class="btn btn-success">Edit</button>
+            </form>
+        </div>
+    </body>
+</html>
