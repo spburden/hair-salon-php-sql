@@ -101,22 +101,23 @@
             $this->assertEquals($test_Stylist1, $output);
         }
 
-        // function test_updateStylist()
-        // {
-        //     //Arrange
-        //     $new_name = "Jennifer Jones";
-        //     $test_Stylist = new Stylist($id = null, $new_name);
-        //     $test_Stylist->save();
-        //     $edit_name = "Jennifer Williams";
-        //
-        //     //Act
-        //     $test_Stylist->updateStylist($edit_name);
-        //     $output = $test_Stylist->getName();
-        //
-        //     //Assert
-        //     $this->assertEquals("Jennifer Williams", $output);
-        // }
-        //
+        function test_updateClient()
+        {
+            //Arrange
+            $new_name = "Jennifer Lopez";
+            $stylist_id = '3';
+            $test_Client = new Client($id = null, $new_name, $stylist_id);
+            $test_Client->save();
+            $edit_name = "Jennifer Dirt";
+
+            //Act
+            $test_Client->updateClient($edit_name);
+            $output = $test_Client->getName();
+
+            //Assert
+            $this->assertEquals("Jennifer Dirt", $output);
+        }
+
         // function test_deleteStylist()
         // {
         //     //Arrange
