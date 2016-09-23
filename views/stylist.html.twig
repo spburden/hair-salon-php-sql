@@ -16,10 +16,11 @@
                 </form>
                 {% endif %}
             {% endif %}
-            <form class="form-inline" action="/stylist/{{ stylist.getId }}/add_client" method="post">
+            <form class="form-inline" action="/stylist/{{ stylist.getId }}/" method="post">
                 <h4>Add a new Client</h4>
                 <div class="form-group">
-                    <input class="form-control" type="text" name="name" placeholder="Name" required>
+                    <input class="form-control" type="text" name="client_name" placeholder="Name" required>
+                    <input type="text" name="stylist_id" value="{{ stylist.getId }}">
                 </div>
                 <button type="submit" class="btn btn-success">+</button>
             </form>

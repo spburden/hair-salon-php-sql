@@ -48,6 +48,14 @@
         return $app['twig']->render('stylist.html.twig', array ('stylist' => $stylist, 'clients' => $clients));
     });
 
+    $app->post("/stylist/{id}/", function($id) use ($app) {
+        $stylist = Stylist::find($id);
+        $new_client = new Client($id = null, $_POST['client_name'], $_POST['stylist_id']);
+        $new_client->save();
+        $clients = $stylist->findClients();
+        $stylists = Stylist::getAll();
+        return $app['twig']->render('stylist.html.twig', array ('stylist' => $stylist, 'clients' => $clients));
+    });
 
 
 
