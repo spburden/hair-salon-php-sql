@@ -10,7 +10,7 @@
                 {% if clients %}
                     <ul>
                         {% for client in clients %}
-                            <a href="/stylist/{{ stylist.getId }}/{{ client.getId }}"><li>{{ client.getName }}</li></a>
+                            <a href="/client/{{ client.getId }}"><li>{{ client.getName }}</li></a>
                         {% endfor %}
                     </ul>
                     <form class="" action="/stylist/{{ stylist.getId }}/delete_all" method="post">
