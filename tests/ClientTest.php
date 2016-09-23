@@ -79,27 +79,28 @@
             //Assert
             $this->assertEquals([], $output);
         }
-        //
-        // function test_find()
-        // {
-        //     //Arrange
-        //     $new_name1 = "Jennifer Jones";
-        //     $test_Stylist1 = new Stylist($id = null, $new_name1);
-        //
-        //     $new_name2 = "Amber Hill";
-        //     $test_Stylist2 = new Stylist($id = null, $new_name2);
-        //
-        //     $test_Stylist1->save();
-        //     $test_Stylist2->save();
-        //
-        //     //Act
-        //     $search_id = $test_Stylist1->getId();
-        //     $output = Stylist::find($search_id);
-        //
-        //     //Assert
-        //     $this->assertEquals($test_Stylist1, $output);
-        // }
-        //
+
+        function test_find()
+        {
+            //Arrange
+            $new_name1 = "Joe Dirt";
+            $stylist_id1 = '3';
+            $test_Client1 = new Client($id = null, $new_name1, $stylist_id1);
+            $test_Client1->save();
+
+            $new_name2 = "Bill Smith";
+            $stylist_id2 = '1';
+            $test_Client2 = new Client($id = null, $new_name2, $stylist_id2);
+            $test_Client2->save();
+
+            //Act
+            $search_id = $test_Client1->getId();
+            $output = Stylist::find($search_id);
+
+            //Assert
+            $this->assertEquals($test_Stylist1, $output);
+        }
+
         // function test_updateStylist()
         // {
         //     //Arrange
