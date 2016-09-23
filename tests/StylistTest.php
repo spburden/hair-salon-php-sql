@@ -24,7 +24,38 @@
             Stylist::deleteAll();
         }
 
-        function test_save()
+        function test_getId()
+        {
+            //Arrange
+            $new_name = "Jennifer Jones";
+            $id = 1;
+            $test_Stylist = new Stylist($id, $new_name);
+
+            //Act
+            $output = $test_Stylist->getId();
+
+            //Assert
+            $this->assertEquals(1, $output);
+        }
+
+        function test_setAndGetName()
+        {
+            //Arrange
+            $new_name = "Jennifer Jones";
+            $id = 1;
+            $test_Stylist = new Stylist($id, $new_name);
+            $edit_name = "Jennifer Williams";
+
+            //Act
+            $test_Stylist->setName($edit_name);
+            $output = $test_Stylist->getName();
+
+            //Assert
+            $this->assertEquals("Jennifer Williams", $output);
+        }
+
+
+        function test_save_toDatabase()
         {
             //Arrange
             $new_name = "Jennifer Jones";

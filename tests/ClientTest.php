@@ -24,7 +24,7 @@
             Client::deleteAll();
         }
 
-        function test_save()
+        function test_save_toDatabase()
         {
             //Arrange
             $new_name = "Joe Dirt";
@@ -38,25 +38,27 @@
             //Assert
             $this->assertEquals([$test_Client], $output);
         }
-        //
-        // function test_getAll()
-        // {
-        //     //Arrange
-        //     $new_name1 = "Jennifer Jones";
-        //     $test_Stylist1 = new Stylist($id = null, $new_name1);
-        //
-        //     $new_name2 = "Amber Hill";
-        //     $test_Stylist2 = new Stylist($id = null, $new_name2);
-        //
-        //     //Act
-        //     $test_Stylist1->save();
-        //     $test_Stylist2->save();
-        //     $output = Stylist::getAll();
-        //
-        //     //Assert
-        //     $this->assertEquals([$test_Stylist1, $test_Stylist2], $output);
-        // }
-        //
+
+        function test_getAll()
+        {
+            //Arrange
+            $new_name1 = "Joe Dirt";
+            $stylist_id1 = '3';
+            $test_Client1 = new Client($id = null, $new_name1, $stylist_id1);
+
+            $new_name2 = "Bill Smith";
+            $stylist_id2 = '1';
+            $test_Client2 = new Client($id = null, $new_name2, $stylist_id2);
+
+            //Act
+            $test_Client1->save();
+            $test_Client2->save();
+            $output = Client::getAll();
+
+            //Assert
+            $this->assertEquals([$test_Client1, $test_Client2], $output);
+        }
+
         // function test_deleteAll()
         // {
         //     //Arrange
