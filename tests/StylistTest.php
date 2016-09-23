@@ -13,27 +13,32 @@
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
-    class ClassTest extends PHPUnit_Framework_TestCase
+    class StylistTest extends PHPUnit_Framework_TestCase
     {
-        // protected function tearDown()
-        // {
-        //     Stylist::deleteAll();
-        //
-        // }
+        protected function tearDown()
+        {
+            Stylist::deleteAll();
+        }
 
         function test_save()
         {
             //Arrange
-            $new_name = "Jennifer Jones";
-            $test_Stylist = new Stylist($id = null, $new_name);
+            $new_name1 = "Jennifer Jones";
+            $test_Stylist1 = new Stylist($id = null, $new_name1);
+
+            $new_name2 = "Amber Hill";
+            $test_Stylist2 = new Stylist($id = null, $new_name2);
 
             //Act
-            $test_Stylist->save();
+            $test_Stylist1->save();
+            $test_Stylist2->save();
             $output = Stylist::getAll();
 
             //Assert
-            $this->assertEquals([$test_Stylist], $output);
+            $this->assertEquals([$test_Stylist1, $test_Stylist2], $output);
         }
+
+        
 
     }
         // export PATH=$PATH:./vendor/bin first and then you will only have to run  $ phpunit tests
