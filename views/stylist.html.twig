@@ -20,7 +20,7 @@
                 <h4>Add a new Client</h4>
                 <div class="form-group">
                     <input class="form-control" type="text" name="client_name" placeholder="Name" required>
-                    <input type="text" name="stylist_id" value="{{ stylist.getId }}">
+                    <input type="hidden" name="stylist_id" value="{{ stylist.getId }}">
                 </div>
                 <button type="submit" class="btn btn-success">+</button>
             </form>
